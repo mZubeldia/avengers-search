@@ -14,7 +14,7 @@ import CharacterNotFound from "./CharacterNotFound";
 import Footer from "./Footer";
 
 //servicios
-import getApiData from "../services/api";
+import getMarvelData from "../services/api";
 import localSt from "../services/localStorage";
 
 const App = () => {
@@ -30,7 +30,15 @@ const App = () => {
   );
 
   //effects
-
+  useEffect(() => {
+    if (characters.length === 0) {
+      //si el array de personajes está vacío, llama a la API
+      getMarvelData().then((characterData) => {
+        setCharacters(characterData);
+      });
+    }
+  }, []);
+  /*
   useEffect(() => {
     //ejecuta cosas en el montaje
     if (characters.length === 0) {
@@ -52,7 +60,7 @@ const App = () => {
   useEffect(() => {
     localSt.set("species", filterSpecies);
   }, [filterSpecies]);
-
+*/
   //event handlers
 
   const handleFilter = (data) => {

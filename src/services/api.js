@@ -1,18 +1,20 @@
-//limpieza data
-//tarjetas:
-//id
-//img
-//nombre
-//especie
+/*
+139b9b05575677bae7c915f0c1370b7ccbbeeb4466464e55f4ddd129f74ccf08944a6d607
+hash: 21cb4015a6c6ae718eab1dc032803fce
+*/
 
-//detalle:
-//id -ya lo tengo
-//name -ya lo tengo
-//especie -ya lo tengo
-//estado
-//origen
-//episodios - me falta, necesito recorrer array
+const getMarvelData = () => {
+  const urlAPI =
+    "https://gateway.marvel.com:443/v1/public/characters?ts=1&apikey=6464e55f4ddd129f74ccf08944a6d607&hash=21cb4015a6c6ae718eab1dc032803fce";
+  return fetch(urlAPI)
+    .then((response) => response.json())
+    .then((json) => {
+      console.log(json.data.results);
+    });
+};
 
+/*  
+original api
 const getApiData = () => {
   return fetch("https://rickandmortyapi.com/api/character")
     .then((response) => response.json())
@@ -21,8 +23,8 @@ const getApiData = () => {
         return {
           name: character.name,
           id: character.id,
-          picture: character.image,
-          species: character.species,
+          picture: character.thumbnail,
+          description: character.description,
           status: character.status,
           origin: character.origin.name,
           episode: character.episode.length,
@@ -41,5 +43,7 @@ const getApiData = () => {
       return cleanData;
     });
 };
-
 export default getApiData;
+*/
+
+export default getMarvelData;
