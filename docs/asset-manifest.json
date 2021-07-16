@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "./static/css/main.880298db.chunk.css",
+    "main.js": "./static/js/main.03ea3918.chunk.js",
+    "main.js.map": "./static/js/main.03ea3918.chunk.js.map",
+    "runtime-main.js": "./static/js/runtime-main.0a78d9bc.js",
+    "runtime-main.js.map": "./static/js/runtime-main.0a78d9bc.js.map",
+    "static/js/2.5d375366.chunk.js": "./static/js/2.5d375366.chunk.js",
+    "static/js/2.5d375366.chunk.js.map": "./static/js/2.5d375366.chunk.js.map",
+    "static/js/3.335c7d86.chunk.js": "./static/js/3.335c7d86.chunk.js",
+    "static/js/3.335c7d86.chunk.js.map": "./static/js/3.335c7d86.chunk.js.map",
+    "index.html": "./index.html",
+    "static/css/main.880298db.chunk.css.map": "./static/css/main.880298db.chunk.css.map",
+    "static/js/2.5d375366.chunk.js.LICENSE.txt": "./static/js/2.5d375366.chunk.js.LICENSE.txt",
+    "static/media/App.scss": "./static/media/not-found.6267af1c.jpg",
+    "static/media/rick_morty_logo.de13d484.png": "./static/media/rick_morty_logo.de13d484.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.0a78d9bc.js",
+    "static/js/2.5d375366.chunk.js",
+    "static/css/main.880298db.chunk.css",
+    "static/js/main.03ea3918.chunk.js"
+  ]
+}
