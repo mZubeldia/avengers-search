@@ -1,6 +1,8 @@
 /*
 139b9b05575677bae7c915f0c1370b7ccbbeeb4466464e55f4ddd129f74ccf08944a6d607
 hash: 21cb4015a6c6ae718eab1dc032803fce
+general: id, nombre, img, nº de cómics
+detalle: id, nombre, img, nº de cómics, bio
 */
 
 const getMarvelData = () => {
@@ -9,7 +11,18 @@ const getMarvelData = () => {
   return fetch(urlAPI)
     .then((response) => response.json())
     .then((json) => {
-      console.log(json.data.results);
+      const cleanData = json.data.results.map((hero) => {
+        return {
+          heroName: hero.name,
+          id: hero.id,
+          //image: hero.thumbnail.path + hero.thubnail.extension,
+          bio: hero.description,
+          comics: hero.comics,
+        };
+      });
+      //console.log(json.data.results);
+      console.log(cleanData);
+      return cleanData;
     });
 };
 

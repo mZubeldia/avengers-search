@@ -22,28 +22,24 @@ const App = () => {
 
   //estados
 
-  const [characters, setCharacters] = useState(localSt.get("characters", [])); // estado de datos y llamo a localStorage para que recoja los datos de characters
+  const [heros, setHeros] = useState(localSt.get("heros", [])); // estado de datos y llamo a localStorage para que recoja los datos de characters
   const [filterName, setFilterName] = useState(localSt.get("filterName", ""));
-
-  const [filterSpecies, setFilterSpecies] = useState(
-    localSt.get("filterSpecies", "")
-  );
 
   //effects
   useEffect(() => {
-    if (characters.length === 0) {
+    if (heros.length === 0) {
       //si el array de personajes está vacío, llama a la API
-      getMarvelData().then((characterData) => {
-        setCharacters(characterData);
+      getMarvelData().then((heroData) => {
+        setHeros(heroData);
       });
     }
   }, []);
   /*
   useEffect(() => {
     //ejecuta cosas en el montaje
-    if (characters.length === 0) {
+    if (heros.length === 0) {
       //si el array de personajes está vacío, llama a la API
-      getApiData().then((characterData) => {
+      getMarvelData().then((characterData) => {
         setCharacters(characterData);
       });
     }
@@ -57,10 +53,8 @@ const App = () => {
     localSt.set("name", filterName);
   }, [filterName]);
 
-  useEffect(() => {
-    localSt.set("species", filterSpecies);
-  }, [filterSpecies]);
-*/
+
+
   //event handlers
 
   const handleFilter = (data) => {
@@ -68,27 +62,21 @@ const App = () => {
 
     if (data.key === "name") {
       setFilterName(data.value);
-    } else if (data.key === "species") {
-      setFilterSpecies(data.value);
+    } 
     }
   };
 
   //render - pintado
 
-  const filteredCharacters = characters
-    .filter((character) => {
-      return character.name.toLowerCase().includes(filterName.toLowerCase());
-    })
-    .filter((character) => {
-      return character.species
-        .toLowerCase()
-        .includes(filterSpecies.toLowerCase());
-    });
+  const filteredHeros = heros.filter((hero) => {
+    return hero.name.toLowerCase().includes(filteredHeros.toLowerCase());
+  });
 
+  /*
   const renderCharacterDetail = (props) => {
     // renderear con rutas
     const routerCharacterId = props.match.params.characterId;
-    const foundCharacter = characters.find((character) => {
+    const foundCharacter = heros.find((character) => {
       return character.id === parseInt(routerCharacterId);
     }); //parseInt(routerCharacterId)
     console.log("router props", routerCharacterId, foundCharacter);
@@ -100,7 +88,7 @@ const App = () => {
       return <CharacterNotFound />;
     }
   };
-
+*/
   return (
     <>
       <Header />
@@ -109,15 +97,14 @@ const App = () => {
           <main className="main">
             <Filters
               filterName={filterName}
-              filterSpecies={filterSpecies}
-              handleFilter={handleFilter}
+              // handleFilter={handleFilter}
             />
 
-            <CharacterList characters={filteredCharacters} />
+            {/*<CharacterList characters={filteredHeros} />*/}
           </main>
         </Route>
-        <Route path="/character/:characterId" render={renderCharacterDetail} />
-        <Route path="*" component={CharacterNotFound} />
+        {/* <Route path="/character/:characterId" render={renderCharacterDetail} />
+        <Route path="*" component={CharacterNotFound} />*/}
       </Switch>
       <Footer />
     </>
