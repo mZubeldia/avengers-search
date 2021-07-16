@@ -7,7 +7,7 @@ const CharacterCard = (props) => {
         <img
           className="character-pic"
           src={props.heroData.image}
-          alt={props.heroData.name}
+          alt={props.heroData.heroName}
         />
 
         <h2 className="character-name">{props.heroData.heroName}</h2>

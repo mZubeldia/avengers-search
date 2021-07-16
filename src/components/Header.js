@@ -1,14 +1,14 @@
-import imgHeader from "../images/rick_morty_logo.png";
+import imgHeader from "../images/marvel1.jpg";
 
 const Header = () => {
   return (
     <header className="header">
-      <h1 className="header-text">Rick and Morty</h1>
+      <h1 className="header-text">Marvel Search</h1>
       <img
         className="header-img"
         src={imgHeader}
-        alt="Rick and Morty"
-        title="Rick and Morty"
+        alt="Marvel Search"
+        title="Marvel Search"
       />
     </header>
   );

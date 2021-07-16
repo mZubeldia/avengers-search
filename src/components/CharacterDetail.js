@@ -8,23 +8,14 @@ const CharacterDetail = (props) => {
       </Link>
       <div className="main-detail">
         <section className="mid-section-card-left">
-          <img src={props.character.picture} alt="nombre" />
+          <img src={props.heroData.image} alt={props.heroData.heroName} />
         </section>
         <section className="mid-section-card-right">
-          <h2 className="detail-title">{props.character.name}</h2>
+          <h2 className="detail-title">{props.heroData.heroName}</h2>
           <ul className="list-detail">
             <li className="list-detail__item">
-              Status:
-              {props.character.status}
-            </li>
-            <li className="list-detail__item">
-              Species: {props.character.species}
-            </li>
-            <li className="list-detail__item">
-              Origin: {props.character.origin}
-            </li>
-            <li className="list-detail__item">
-              Number of episodes: {props.character.episode}
+              Bio:
+              {props.heroData.bio}
             </li>
           </ul>
         </section>
