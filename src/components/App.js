@@ -23,7 +23,7 @@ const App = () => {
   //estados
 
   const [heros, setHeros] = useState(localSt.get("heros", [])); // estado de datos y llamo a localStorage para que recoja los datos de characters
-  const [filterName, setFilterName] = useState(localSt.get("filterName", ""));
+  const [filterHero, setFilterHero] = useState(localSt.get("filterHero", ""));
 
   //effects
   useEffect(() => {
@@ -34,24 +34,16 @@ const App = () => {
       });
     }
   }, []);
+  console.log(heros);
   /*
-  useEffect(() => {
-    //ejecuta cosas en el montaje
-    if (heros.length === 0) {
-      //si el array de personajes está vacío, llama a la API
-      getMarvelData().then((characterData) => {
-        setCharacters(characterData);
-      });
-    }
-  }, []); //parámetro que nos indica cuándo se debe ejecturar el use effect
 
   useEffect(() => {
     localSt.set("characters", characters);
   }, [characters]);
 
   useEffect(() => {
-    localSt.set("name", filterName);
-  }, [filterName]);
+    localSt.set("name", filterHero);
+  }, [filterHero]);
 
 
 
@@ -61,16 +53,16 @@ const App = () => {
     //función general para todos los filtros
 
     if (data.key === "name") {
-      setFilterName(data.value);
+      setfilterHero(data.value);
     } 
     }
-  };
+  };*/
 
   //render - pintado
 
-  const filteredHeros = heros.filter((hero) => {
-    return hero.name.toLowerCase().includes(filteredHeros.toLowerCase());
-  });
+  // const filteredHeros = heros.filter((hero) => {
+  // return hero.name.includes(filteredHeros);
+  // });
 
   /*
   const renderCharacterDetail = (props) => {
@@ -95,12 +87,11 @@ const App = () => {
       <Switch>
         <Route exact path="/">
           <main className="main">
-            <Filters
-              filterName={filterName}
+            {/* <Filters
+              filterHero={filterHero}
               // handleFilter={handleFilter}
-            />
-
-            {/*<CharacterList characters={filteredHeros} />*/}
+            />*/}
+            <CharacterList heros={heros} />
           </main>
         </Route>
         {/* <Route path="/character/:characterId" render={renderCharacterDetail} />
