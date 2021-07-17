@@ -1,4 +1,4 @@
-# Avengers Character Search
+# Marvel Character Search
 
 Hey 👋, welcome to this repo!
 
