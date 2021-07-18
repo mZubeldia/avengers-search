@@ -19,7 +19,7 @@ const getMarvelData = () => {
         };
       });
       //console.log(json.data.results);
-      console.log(cleanData);
+      //console.log(cleanData);
       return cleanData;
     });
 };

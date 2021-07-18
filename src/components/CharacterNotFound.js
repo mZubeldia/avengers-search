@@ -9,7 +9,7 @@ const CharacterNotFound = () => {
           Try again
         </Link>
         <h2 className="not-found-text">
-          The character you are looking for is not in this dimension...
+          The hero you are looking for is not in this dimension...
         </h2>
       </main>
     </>

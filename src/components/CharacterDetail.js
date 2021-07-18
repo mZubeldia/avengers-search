@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 
 const CharacterDetail = (props) => {
+  console.log(props.hero);
   return (
     <main className="card-detail-container">
       <Link className="return-link" to="/">
