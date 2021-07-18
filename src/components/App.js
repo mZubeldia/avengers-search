@@ -20,9 +20,7 @@ const App = () => {
   //estados
 
   const [heros, setHeros] = useState(localSt.get("heros", [])); // estado de datos y llamo a localStorage para que recoja los datos de characters
-  const [filteredHero, setfilterHero] = useState(
-    localSt.get("filteredHero", "")
-  );
+  const [filterName, setFilterName] = useState(localSt.get("filterName", ""));
 
   //effects
   useEffect(() => {
@@ -37,7 +35,19 @@ const App = () => {
 
   //event handlers
 
+  const handleFilter = (data) => {
+    //función general para todos los filtros
+
+    if (data.key === "name") {
+      setFilterName(data.value);
+    }
+  };
+
   //render - pintado
+
+  const filteredHeros = heros.filter((hero) => {
+    return hero.heroName.toLowerCase().includes(filterName.toLowerCase());
+  });
 
   return (
     <>
@@ -45,8 +55,8 @@ const App = () => {
       <Switch>
         <Route exact path="/">
           <main className="main">
-            <Filters />
-            <CharacterList heros={heros} />
+            <Filters handleFilter={handleFilter} filterName={filterName} />
+            <CharacterList heros={filteredHeros} />
           </main>
         </Route>
         <Route>
