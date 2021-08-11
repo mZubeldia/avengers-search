@@ -10,6 +10,7 @@ import Header from "./Header";
 import Filters from "./Filters";
 import CharacterList from "./CharacterList";
 import CharacterDetail from "./CharacterDetail";
+import CharacterNotFound from "./CharacterNotFound";
 import Footer from "./Footer";
 
 //servicios
@@ -31,7 +32,6 @@ const App = () => {
       });
     }
   }, []);
-  console.log(heros);
 
   //event handlers
 
@@ -45,9 +45,33 @@ const App = () => {
 
   //render - pintado
 
+  //función para pintar héroes filtrados
   const filteredHeros = heros.filter((hero) => {
     return hero.heroName.toLowerCase().includes(filterName.toLowerCase());
   });
+
+  //función para pintar detalle héroes
+  const renderHeroDetail = (props) => {
+    console.log("router props", props.match.params.heroId);
+    const routeHeroId = props.match.params.heroId;
+    const FoundHero = heros.find((hero) => {
+      return hero.id === routeHeroId;
+    });
+    if (FoundHero === undefined) {
+      return <CharacterDetail heros={heros} />;
+    } else {
+      return <CharacterNotFound />;
+    }
+  };
+  /*
+    const renderHeroDetail = (props) => {
+    const foundHero = heros.find((hero) => {
+      return hero.id;
+    });
+  };
+
+  return <CharacterDetail />
+  */
 
   return (
     <>
@@ -59,9 +83,7 @@ const App = () => {
             <CharacterList heros={filteredHeros} />
           </main>
         </Route>
-        <Route>
-          <CharacterDetail />
-        </Route>
+        <Route path="/hero/:heroId" render={renderHeroDetail}></Route>
 
         {/*<Route path="*" component={CharacterNotFound} />*/}
       </Switch>

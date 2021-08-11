@@ -18,8 +18,7 @@ const getMarvelData = () => {
           comics: hero.comics,
         };
       });
-      //console.log(json.data.results);
-      //console.log(cleanData);
+
       return cleanData;
     });
 };
